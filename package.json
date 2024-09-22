@@ -1,7 +1,7 @@
 {
   "name": "i18n-master.js",
   "version": "0.1.0",
-  "description": "i18nMaster.js is a powerful, flexible, and easy-to-use translation service for JavaScript applications. Whether you're building a React app, a Node.js backend, or any other JavaScript project, i18nMaster.js has got you covered with its seamless multilingual support.",
+  "description": "i18n-master.js is a powerful, flexible, and easy-to-use translation service for JavaScript applications. Whether you're building a React app, a Node.js backend, or any other JavaScript project, i18n-master.js has got you covered with its seamless multilingual support.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

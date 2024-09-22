@@ -1,11 +1,11 @@
 <p align="center"><a href="https://www.modesigns.studio" target="_blank"><img src="https://www.modesigns.studio/_next/image?url=%2Fimages%2Flogo%2Fmo-designs-logo.gif&w=256&q=75" width="250" alt="Mo Designs Studio Logo"></a></p>
 
-# 🌐 i18nMaster.js: Effortless Multilingual Support for Your App
+# 🌐 i18n-master.js: Effortless Multilingual Support for Your App
 
-[![npm version](https://badge.fury.io/js/i18nMaster.js.svg)](https://badge.fury.io/js/i18nMaster.js)
+[![npm version](https://badge.fury.io/js/i18n-master.js.svg)](https://badge.fury.io/js/i18n-master.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-i18nMaster.js is a powerful, flexible, and easy-to-use translation service for JavaScript applications. Whether you're building a React app, a Node.js backend, or any other JavaScript project, i18nMaster.js has got you covered with its seamless multilingual support.
+i18n-master.js is a powerful, flexible, and easy-to-use translation service for JavaScript applications. Whether you're building a React app, a Node.js backend, or any other JavaScript project, i18n-master.js has got you covered with its seamless multilingual support.
 
 ## 🚀 Features
 
@@ -19,7 +19,7 @@ i18nMaster.js is a powerful, flexible, and easy-to-use translation service for J
 ## 📦 Installation
 
 ```bash
-npm install i18nMaster.js
+npm install i18n-master.js
 ```
 
 ## 🛠 Usage
@@ -29,8 +29,8 @@ npm install i18nMaster.js
 1. Import the necessary modules:
 
 ```javascript
-import TranslationService from 'i18nMaster.js/TranslationService';
-import TranslationConfig from 'i18nMaster.js/TranslationConfig';
+import TranslationService from 'i18n-master.js/TranslationService';
+import TranslationConfig from 'i18n-master.js/TranslationConfig';
 ```
 
 2. Configure supported languages:
@@ -69,7 +69,7 @@ console.log(greeting); // Output: Hello, world!
 
 ### 📁 Organizing Translations
 
-i18nMaster.js supports a modular approach to organizing your translations. Here's an example of how to structure your translation files:
+i18n-master.js supports a modular approach to organizing your translations. Here's an example of how to structure your translation files:
 
 #### `translations/index.ts`
 
@@ -143,11 +143,11 @@ With this structure, you can easily manage and scale your translations as your a
 
 ### 🖥 Frontend Usage (React Example)
 
-Here's how you can use i18nMaster.js in a React application:
+Here's how you can use i18n-master.js in a React application:
 
 ```jsx
 import React from 'react';
-import TranslationService from 'i18nMaster.js/TranslationService';
+import TranslationService from 'i18n-master.js/TranslationService';
 
 const translationService = TranslationService.getInstance();
 
@@ -172,11 +172,11 @@ export default App;
 
 ### 🖧 Backend Usage (Express.js)
 
-i18nMaster.js provides a middleware for Express.js that automatically detects the user's preferred language:
+i18n-master.js provides a middleware for Express.js that automatically detects the user's preferred language:
 
 ```javascript
 import express from 'express';
-import { translationMiddleware } from 'i18nMaster.js/translationMiddleware';
+import { translationMiddleware } from 'i18n-master.js/translationMiddleware';
 
 const app = express();
 
@@ -197,10 +197,10 @@ The middleware adds a `getTranslation` method to the `req` object, allowing you 
 
 ## 🎛 Configuration
 
-You can configure i18nMaster.js using the `TranslationConfig` class:
+You can configure i18n-master.js using the `TranslationConfig` class:
 
 ```javascript
-import TranslationConfig from 'i18nMaster.js/TranslationConfig';
+import TranslationConfig from 'i18n-master.js/TranslationConfig';
 
 const config = TranslationConfig.getInstance();
 config.setConfig({
@@ -211,18 +211,18 @@ config.setConfig({
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to i18nMaster.js.
+We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute to i18n-master.js.
 
 ## 📄 License
 
-i18nMaster.js is MIT licensed. See the [LICENSE](LICENSE) file for details.
+i18n-master.js is MIT licensed. See the [LICENSE](LICENSE) file for details.
 
 ## 🙋‍♀️ Support
 
-If you encounter any issues or have questions, please file an issue on our [GitHub repository](https://github.com/your-repo/i18nMaster.js/issues).
+If you encounter any issues or have questions, please file an issue on our [GitHub repository](https://github.com/your-repo/i18n-master.js/issues).
 
 ---
 
-Make your app speak the language of your users with i18nMaster.js! 🌍🗣️
+Make your app speak the language of your users with i18n-master.js! 🌍🗣️
 
 ## Developed with ❤️ by Mohamad Almoayad.
