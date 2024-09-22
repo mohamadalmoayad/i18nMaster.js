@@ -13,6 +13,7 @@ i18n-master.js is a powerful, flexible, and easy-to-use translation service for 
 - 🧠 Smart caching for improved performance
 - 🌍 Support for multiple languages and locales
 - 📦 Modular structure for organized translations
+- ⏱️ Lazy loading capabilities for improved application performance
 - 🔌 Express middleware for automatic language detection
 - 🎛 Configurable default language and supported languages
 
@@ -29,24 +30,23 @@ npm install i18n-master.js
 1. Import the necessary modules:
 
 ```javascript
-import TranslationService from 'i18n-master.js/TranslationService';
-import TranslationConfig from 'i18n-master.js/TranslationConfig';
+import { TranslationService, TranslationConfig } from 'i18n-master.js'
 ```
 
 2. Configure supported languages:
 
 ```javascript
-const config = TranslationConfig.getInstance();
+const config = TranslationConfig.getInstance()
 config.setConfig({
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'es-ES', 'fr-FR', 'de-DE', 'ja-JP'],
-});
+})
 ```
 
 3. Add your translations:
 
 ```javascript
-const translationService = TranslationService.getInstance();
+const translationService = TranslationService.getInstance()
 translationService.addTranslations({
   'en-US': {
     greeting: 'Hello, world!',
@@ -57,14 +57,14 @@ translationService.addTranslations({
     farewell: '¡Adiós!',
   },
   // Add more languages...
-});
+})
 ```
 
 4. Use translations in your code:
 
 ```javascript
-const greeting = translationService.translate('en-US', 'greeting');
-console.log(greeting); // Output: Hello, world!
+const greeting = translationService.translate('en-US', 'greeting')
+console.log(greeting) // Output: Hello, world!
 ```
 
 ### 📁 Organizing Translations
@@ -74,8 +74,7 @@ i18n-master.js supports a modular approach to organizing your translations. Here
 #### `translations/index.ts`
 
 ```typescript
-import messages from './messages';
-import errors from './errors';
+import messages from './messages'
 
 const Translations = {
   'en-US': {
@@ -99,10 +98,9 @@ const Translations = {
     Reset: 'Restablecer',
   },
   messages,
-  errors,
-};
+}
 
-export default Translations;
+export default Translations
 ```
 
 #### `translations/messages.ts`
@@ -117,10 +115,16 @@ const Messages = {
     Welcome: '¡Bienvenido a nuestra aplicación!',
     ThankYou: 'Gracias por utilizar nuestro servicio.',
   },
-};
+}
 
-export default Messages;
+export default Messages
 ```
+
+With this structure, you can easily manage and scale your translations as your application grows.
+
+### ⏱️ Lazy Loading
+
+i18n-master.js also supports a lazy load approach to improve your app performance. By loading your translations on demand, you can reduce the initial bundle size and improve the overall user experience. Here's an example of how to lazy load a translation module:
 
 #### `translations/errors.ts`
 
@@ -134,29 +138,36 @@ const Errors = {
     NotFound: 'Recurso no encontrado',
     ServerError: 'Ocurrió un error inesperado',
   },
-};
+}
 
-export default Errors;
+export default Errors
 ```
 
-With this structure, you can easily manage and scale your translations as your application grows.
+```javascript
+import errorsModule from '../app/translations/errors'
+
+const translationService = TranslationService.getInstance()
+translationService.addTranslations({ errors: errorsModule })
+```
+
+By using the `addTranslations` method inside any app module, you can ensure that the targeted module will only be loaded when needed.
 
 ### 🖥 Frontend Usage (React Example)
 
 Here's how you can use i18n-master.js in a React application:
 
 ```jsx
-import React from 'react';
-import TranslationService from 'i18n-master.js/TranslationService';
+import React from 'react'
+import { TranslationService } from 'i18n-master.js'
 
-const translationService = TranslationService.getInstance();
+const translationService = TranslationService.getInstance()
 
 function App() {
-  const [language, setLanguage] = React.useState('en-US');
+  const [language, setLanguage] = React.useState('en-US')
 
   const translate = (key, module) => {
-    return translationService.translate(language, key, module);
-  };
+    return translationService.translate(language, key, module)
+  }
 
   return (
     <div>
@@ -164,10 +175,10 @@ function App() {
       <button>{translate('Confirm')}</button>
       <p>{translate('ThankYou', 'messages')}</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ### 🖧 Backend Usage (Express.js)
@@ -175,22 +186,22 @@ export default App;
 i18n-master.js provides a middleware for Express.js that automatically detects the user's preferred language:
 
 ```javascript
-import express from 'express';
-import { translationMiddleware } from 'i18n-master.js/translationMiddleware';
+import express from 'express'
+import { translationMiddleware } from 'i18n-master.js'
 
-const app = express();
+const app = express()
 
 // Apply the translation middleware
-app.use(translationMiddleware);
+app.use(translationMiddleware)
 
 app.get('/', (req, res) => {
-  const greeting = req.getTranslation('greeting');
-  res.send(greeting);
-});
+  const greeting = req.getTranslation('greeting')
+  res.send(greeting)
+})
 
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+  console.log('Server is running on port 3000')
+})
 ```
 
 The middleware adds a `getTranslation` method to the `req` object, allowing you to easily retrieve translations based on the detected language.
@@ -200,13 +211,13 @@ The middleware adds a `getTranslation` method to the `req` object, allowing you 
 You can configure i18n-master.js using the `TranslationConfig` class:
 
 ```javascript
-import TranslationConfig from 'i18n-master.js/TranslationConfig';
+import { TranslationConfig } from 'i18n-master.js'
 
-const config = TranslationConfig.getInstance();
+const config = TranslationConfig.getInstance()
 config.setConfig({
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'es-ES', 'fr-FR', 'de-DE', 'ja-JP'],
-});
+})
 ```
 
 ## 🤝 Contributing
