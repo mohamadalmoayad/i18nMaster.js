@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-export const translationMiddleware = (req: Request, res: Response, next: NextFunction) => {
+const translationMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const translationConfig = TranslationConfig.getInstance()
   const translationService = TranslationService.getInstance()
   const defaultLanguage = translationConfig.getConfig().defaultLanguage
@@ -31,3 +31,5 @@ export const translationMiddleware = (req: Request, res: Response, next: NextFun
 
   next()
 }
+
+export default translationMiddleware;
